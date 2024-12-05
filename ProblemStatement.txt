@@ -1,0 +1,59 @@
+Question NO. 4    Use Case : Resume Generation  
+Business Need: 
+ 
+Our recruiters need a streamlined way to access and share candidate resumes during the interview process. Currently, resume files are scattered across various systems, making it time-consuming to locate and distribute them. We want to enhance the Recruitment App to automatically generate professional-looking PDF resumes for each candidate, consolidating their relevant information and making it readily available within Salesforce.
+ 
+Functional Requirements: 
+ 
+1. Resume Generation: 
+
+* The system should generate a PDF resume for each candidate. 
+* The resume should include key information such as: 
+* Candidate's personal details (name, contact information, etc.) 
+* Work experience (company, title, dates, responsibilities) 
+* Education (institution, degree, dates) 
+* Skills and certifications 
+* Any other relevant information 
+1. Resume Attachment: 
+* The generated PDF resume should be automatically attached to the corresponding Candidate record in Salesforce. 
+* Recruiters should be able to easily access and download the resume directly from the Candidate record. 
+1. Triggering Mechanism: 
+* Provide recruiters with the ability to manually trigger resume generation for a specific candidate or a group of candidates. 
+* Explore the possibility of automating resume generation based on specific events or criteria (e.g., when a candidate is shortlisted for an interview). 
+1. Resume Formatting: 
+* The PDF resume should have a professional and visually appealing layout. 
+* Consider using the company's branding and colour scheme in the resume design. 
+* Ensure the resume is easily readable and well-organized. 
+ 
+
+Technical Requirements: 
+ 
+* Visualforce Page: 
+* Create a Visualforce page to dynamically render the resume content based on candidate data. 
+* Use CSS and HTML to style the resume according to the specified formatting requirements. 
+* Leverage the PageReference.getContentAsPDF() method to generate the PDF version of the resume.  
+* Apex Controller: 
+* Develop an Apex controller to fetch the necessary candidate data from the database.  
+* Queueable Apex: 
+* Implement a Queueable class to process candidate IDs and generate PDF resumes asynchronously. 
+* The Queueable class should call the Apex controller to render the Visualforce page and generate the PDF. 
+* Attach the generated PDF resume to the corresponding Candidate record.  
+* User Interface (Button/Trigger): 
+* Provide a user-friendly way for recruiters to trigger resume generation (e.g., a button on the Candidate record). 
+* Select multiple candidates and click a generate resumes. The generated resumes will be attached under corresponding candidate records. 
+* If automating resume generation, implement the necessary logic to trigger the Queueable job based on defined events or criteria. 
+* Test Class : Write the Test class for unit testing and scenario testing , while following the test class guidelines from the Cloudkaptan Standards and Coding Guidelines. 
+ 
+ Additional Considerations: 
+ 
+* Data Security: Ensure sensitive candidate data is handled securely and access to resumes is restricted to authorized users. 
+* Error Handling: Implement robust error handling within the Queueable class and Apex controller to gracefully manage any exceptions during resume generation or attachment. 
+* Testing: Write comprehensive test classes to cover various scenarios, including single and bulk resume generation, error handling, and attachment verification. 
+  Queueable Apex (Quick Glimpse of Standards) 
+ 
+* Use descriptive class and method names (e.g., GenerateCandidateResumesQueueable, execute). 
+* Implement bulkification and error handling. 
+* Write test classes to verify the Queueable class's behaviour and ensure it meets requirements. 
+ 
+
+How to create a vf page and connected to button and render the vf page as pdf
