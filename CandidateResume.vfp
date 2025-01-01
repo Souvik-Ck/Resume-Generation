@@ -1,0 +1,33 @@
+<apex:page standardController="Candiate__c" renderAs="pdf" showHeader="false" sidebar="false">
+<apex:pageBlock title="Candidate Resume">
+    <!-- Personal Details Section -->
+    <apex:pageBlockSection title="Personal Details" columns="1">
+        <table style="width: 100%; border-collapse: collapse;">
+            <tr><td>Name</td><td>{!Candiate__c.Name}</td></tr>
+            <tr><td>Email</td><td>{!Candiate__c.Email__c}</td></tr>
+            <tr><td>Phone</td><td>{!Candiate__c.Phone__c}</td></tr>
+            <tr><td>Mobile</td><td>{!Candiate__c.Mobile__c}</td></tr>
+            <tr><td>City</td><td>{!Candiate__c.City__c}</td></tr>
+            <tr><td>Country</td><td>{!Candiate__c.Country__c}</td></tr>
+            <tr><td>Street</td><td>{!Candiate__c.Street__c}</td></tr>
+            <tr><td>State</td><td>{!Candiate__c.State__c}</td></tr>
+            <tr><td>Zip/Postal Code</td><td>{!Candiate__c.Zip_Postal_Code__c}</td></tr>
+        </table>
+    </apex:pageBlockSection>
+
+    <!-- Additional Sections -->
+    <apex:pageBlockSection title="Employment Details" columns="1">
+        <table style="width: 100%; border-collapse: collapse;">
+            <tr><td>Current Employer</td><td>{!Candiate__c.Current_Employer__c}</td></tr>
+            <tr><td>Currently Employed</td><td>{!IF(Candiate__c.Current_Emplyed__c, 'Yes', 'No')}</td></tr>
+        </table>
+    </apex:pageBlockSection>
+
+    <apex:pageBlockSection title="Skills and Experience" columns="1">
+        <table style="width: 100%; border-collapse: collapse;">
+            <tr><td>Skills</td><td>{!Candiate__c.Skills_And_Certifications__c}</td></tr>
+            <tr><td>Years of Experience</td><td>{!Candiate__c.Year_of_Experience__c}</td></tr>
+        </table>
+    </apex:pageBlockSection>
+</apex:pageBlock>
+</apex:page>
